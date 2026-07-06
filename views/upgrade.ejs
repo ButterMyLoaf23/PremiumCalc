@@ -59,10 +59,16 @@
 
         <button
             type="button"
-            onclick="processPayment()"
+            onclick="window.location.href='/receipt'"
         >
             Pay Now
         </button>
+
+        <button 
+            type="button"
+            onclick="window.location.href='/'">Return Home
+        </button>
+
 
     </form>
 
@@ -73,7 +79,7 @@
 function processPayment(){
 
     alert(
-        "Payment failed.\n\n" +
+        "Payment failed."
     );
 
 }

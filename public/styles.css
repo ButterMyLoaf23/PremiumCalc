@@ -73,7 +73,9 @@ body{
 
     cursor:pointer;
 
-    transition:.2s
+    transition:.2s;
+
+
 }
 
 .buttons button:hover{
@@ -231,6 +233,9 @@ body{
     font-size:1.2rem;
 
     cursor:pointer;
+
+    margin-top: 10px;
+
 }
 
 .price{
@@ -238,6 +243,86 @@ body{
     font-size:2rem;
 
     color:#22c55e;
+}
+
+.receipt-container{
+
+    width:100%;
+    max-width:800px;
+
+    background:white;
+
+    color:black;
+
+    margin:40px auto;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+.receipt-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+.receipt-info{
+
+    margin-bottom:20px;
+}
+
+.receipt-container table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+}
+
+.receipt-container th,
+.receipt-container td{
+
+    padding:15px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:left;
+}
+
+.total-row{
+
+    font-weight:bold;
+
+    font-size:1.3rem;
+}
+
+.thank-you{
+
+    margin-top:30px;
+
+    text-align:center;
+}
+
+.thank-you a{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    text-decoration:none;
 }
 
 @media (max-width: 600px){

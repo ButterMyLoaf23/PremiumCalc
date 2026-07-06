@@ -24,7 +24,15 @@ app.get("/", (req, res) => {
 
 app.get("/upgrade", (req, res) => {
     res.render("upgrade");
-})
+});
+
+app.get("/receipt", (req, res) => {
+    const orderNumber = Math.floor(Math.random() * 1000000000);
+
+    res.render("receipt", {
+        orderNumber
+    });
+});
 
 app.post("/calculate", (req, res) => {
     const { num1, num2, operation } = req.body;

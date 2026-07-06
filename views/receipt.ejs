@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="receipt-container">
+
+    <div class="receipt-header">
+
+        <h1>PremiumCalc™</h1>
+
+        <p>
+            Payment Receipt
+        </p>
+
+    </div>
+
+    <div class="receipt-info">
+
+        <p>
+            <strong>Order Number:</strong>
+            #<%= orderNumber %>
+        </p>
+
+        <p>
+            <strong>Date:</strong>
+            <%= new Date().toLocaleDateString() %>
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            Approved ✓
+        </p>
+
+    </div>
+
+    <hr>
+
+    <table>
+
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+
+        <tr>
+            <td>Fee Processing Fee</td>
+            <td>$9.99</td>
+        </tr>
+
+        <tr>
+            <td>Credit Card Proccessing Fee</td>
+            <td>$5.00</td>
+        </tr>
+
+        <tr class="total-row">
+            <td>Total Charged</td>
+            <td>$14.99</td>
+        </tr>
+
+    </table>
+
+    <div class="thank-you">
+
+        <h2>Thank You!</h2>
+
+        <p>
+            Your payment has been successfully processed.
+        </p>
+
+        <a href="/">
+            Return Home
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
