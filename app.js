@@ -6,34 +6,6 @@ const tiers = [
     {
         name: "Premium Plus",
         price: "$9.99/month"
-    },
-    {
-        name: "Premium Max",
-        price: "$19.99/month"
-    },
-    {
-        name: "Premium Ultra",
-        price: "$49.99/month"
-    },
-    {
-        name: "Premium Infinity",
-        price: "$99.99/month"
-    },
-    {
-        name: "Quantum Calculator Access",
-        price: "$299.99/month"
-    },
-    {
-        name: "Interdimensional Math Pass",
-        price: "$999.99/month"
-    },
-    {
-        name: "Answer-as-a-Service Enterprise Edition",
-        price: "$4,999.99/month"
-    },
-    {
-        name: "God Mode Calculator",
-        price: "$99,999/month"
     }
 ];
 
