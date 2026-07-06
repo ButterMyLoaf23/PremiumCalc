@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/upgrade", (req, res) => {
+    res.render("upgrade");
+})
+
 app.post("/calculate", (req, res) => {
     const { num1, num2, operation } = req.body;
 
@@ -95,7 +99,7 @@ app.post("/calculate", (req, res) => {
     });
 });
 
-const PORT = 3000;
+const PORT = 4000;
 
 app.listen(PORT, () => {
     console.log("Server running on port 3000");

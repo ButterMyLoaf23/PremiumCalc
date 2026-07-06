@@ -6,28 +6,136 @@
 </head>
 <body>
 
-<h1>PremiumCalc Pro™</h1>
+<div class="calculator">
 
-<img src="/premium.png" width="200">
+    <div id="display" class="display">0</div>
 
-<form action="/calculate" method="POST">
+    <form id="calcForm" action="/calculate" method="POST">
 
-    <input type="number" name="num1" required>
+        <input type="hidden" name="num1" id="num1">
+        <input type="hidden" name="num2" id="num2">
+        <input type="hidden" name="operation" id="operation">
 
-    <select name="operation">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-    </select>
+        <div class="buttons">
 
-    <input type="number" name="num2" required>
+            <button type="button" onclick="appendNumber('7')">7</button>
+            <button type="button" onclick="appendNumber('8')">8</button>
+            <button type="button" onclick="appendNumber('9')">9</button>
+            <button type="button" onclick="setOperation('/')">÷</button>
 
-    <button type="submit">
-        Calculate
-    </button>
+            <button type="button" onclick="appendNumber('4')">4</button>
+            <button type="button" onclick="appendNumber('5')">5</button>
+            <button type="button" onclick="appendNumber('6')">6</button>
+            <button type="button" onclick="setOperation('*')">×</button>
 
-</form>
+            <button type="button" onclick="appendNumber('1')">1</button>
+            <button type="button" onclick="appendNumber('2')">2</button>
+            <button type="button" onclick="appendNumber('3')">3</button>
+            <button type="button" onclick="setOperation('-')">−</button>
+
+            <button type="button" onclick="clearCalc()">C</button>
+            <button type="button" onclick="appendNumber('0')">0</button>
+            <button type="button" onclick="appendDecimal()">.</button>
+            <button type="button" onclick="setOperation('+')">+</button>
+
+            <button
+                type="button"
+                class="equals"
+                onclick="submitCalculation()"
+            >
+                =
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
+
+function updateDisplay(){
+
+    document.getElementById("display").textContent =
+        firstNumber + operator + secondNumber || "0";
+}
+
+function appendNumber(num){
+
+    if(operator === ""){
+        firstNumber += num;
+    }
+    else{
+        secondNumber += num;
+    }
+
+    updateDisplay();
+}
+
+function appendDecimal(){
+
+    if(operator === ""){
+
+        if(!firstNumber.includes(".")){
+            firstNumber += ".";
+        }
+
+    } else {
+
+        if(!secondNumber.includes(".")){
+            secondNumber += ".";
+        }
+    }
+
+    updateDisplay();
+}
+
+function setOperation(op){
+
+    if(firstNumber === "") return;
+
+    operator = op;
+
+    updateDisplay();
+}
+
+function clearCalc(){
+
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+
+    updateDisplay();
+}
+
+function submitCalculation(){
+
+    if(
+        firstNumber === "" ||
+        secondNumber === "" ||
+        operator === ""
+    ){
+        alert("Please complete the calculation.");
+        return;
+    }
+
+    document.getElementById("num1").value =
+        firstNumber;
+
+    document.getElementById("num2").value =
+        secondNumber;
+
+    document.getElementById("operation").value =
+        operator;
+
+    document.getElementById("calcForm").submit();
+}
+
+</script>
 
 <% if(error) { %>
     <p class="error"><%= error %></p>
@@ -37,29 +145,38 @@
 
 <div id="paywall">
 
-    <h2>🎉 Your answer has been calculated!</h2>
+    <div class="paywall-card">
 
-    <h3>
-        Required Plan:
-        <%= tier.name %>
-    </h3>
+        <h1>🔒 Result Locked</h1>
 
-    <p>
-        Only <%= tier.price %>
-    </p>
+        <div class="locked-answer">
+            ********
+        </div>
 
-    <button onclick="closePaywall()">
-        I'm Too Poor
-    </button>
+        <h2><%= tier.name %></h2>
 
-    <button onclick="upgradeAgain()">
-        View Better Plans
-    </button>
+        <h3><%= tier.price %></h3>
 
-</div>
+        <p>
+            Your answer has been successfully calculated.
+        </p>
 
-<div id="resultBox">
-    Result: <%= result %>
+        <p>
+            Upgrade to reveal it.
+        </p>
+
+        <a href="/upgrade">
+            <button>
+                Upgrade Now
+            </button>
+        </a>
+
+        <button onclick="closePaywall()">
+            Maybe Later
+        </button>
+
+    </div>
+
 </div>
 
 <% } %>

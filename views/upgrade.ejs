@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PremiumCalc Checkout</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="checkout-container">
+
+    <h1>💳 PremiumCalc Checkout</h1>
+
+    <h2>Premium Infinity Plan</h2>
+
+    <p class="price">
+        Only $99.99/month
+    </p>
+
+    <p>
+        Includes:
+    </p>
+
+    <ul>
+        <li>Viewing answers</li>
+        <li>Addition support</li>
+        <li>AI Calculations</li>
+    </ul>
+
+    <form>
+
+        <input
+            type="text"
+            placeholder="Cardholder Name"
+            required
+        >
+
+        <input
+            type="text"
+            placeholder="Card Number"
+            required
+        >
+
+        <div class="card-row">
+
+            <input
+                type="text"
+                placeholder="MM/YY"
+                required
+            >
+
+            <input
+                type="text"
+                placeholder="CVV"
+                required
+            >
+
+        </div>
+
+        <button
+            type="button"
+            onclick="processPayment()"
+        >
+            Pay Now
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+function processPayment(){
+
+    alert(
+        "Payment failed.\n\n" +
+    );
+
+}
+
+</script>
+
+</body>
+</html>
