@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PremiumCalc Pro</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<h1>PremiumCalc Pro™</h1>
+
+<img src="/premium.png" width="200">
+
+<form action="/calculate" method="POST">
+
+    <input type="number" name="num1" required>
+
+    <select name="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <input type="number" name="num2" required>
+
+    <button type="submit">
+        Calculate
+    </button>
+
+</form>
+
+<% if(error) { %>
+    <p class="error"><%= error %></p>
+<% } %>
+
+<% if(result !== null) { %>
+
+<div id="paywall">
+
+    <h2>🎉 Your answer has been calculated!</h2>
+
+    <h3>
+        Required Plan:
+        <%= tier.name %>
+    </h3>
+
+    <p>
+        Only <%= tier.price %>
+    </p>
+
+    <button onclick="closePaywall()">
+        I'm Too Poor
+    </button>
+
+    <button onclick="upgradeAgain()">
+        View Better Plans
+    </button>
+
+</div>
+
+<div id="resultBox">
+    Result: <%= result %>
+</div>
+
+<% } %>
+
+<script>
+
+function closePaywall() {
+    document.getElementById("paywall").style.display = "none";
+}
+
+window.onload = () => {
+    const paywall = document.getElementById("paywall");
+
+    if(paywall) {
+        paywall.style.display = "flex";
+    }
+}
+
+</script>
+
+</body>
+</html>

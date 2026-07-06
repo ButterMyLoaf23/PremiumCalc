@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+form {
+    margin: 20px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    margin: 5px;
+}
+
+.error {
+    color: red;
+}
+
+#paywall {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.85);
+    color: white;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultBox {
+    margin-top: 20px;
+    font-size: 2rem;
+
+    filter: blur(10px);
+
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+
+    0% { transform: translateX(0); }
+
+    25% { transform: translateX(10px); }
+
+    50% { transform: translateX(-10px); }
+
+    75% { transform: translateX(10px); }
+
+    100% { transform: translateX(0); }
+
+}
